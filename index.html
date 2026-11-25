@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+    <title>VibeCheckr AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="privacy-popup" class="privacy-overlay">
+        <div class="privacy-content">
+            <div class="hud-bracket top-left"></div>
+            <div class="hud-bracket top-right"></div>
+            <h3>PRIVACY SECURED</h3>
+            <p>No biometric data is stored or transmitted. All facial analysis is performed locally on your device and wiped instantly upon session exit.</p>
+            <button id="close-privacy" class="main-action">I UNDERSTAND</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <header class="mode-selector">
+            <button class="mode-btn active" data-mode="chad">CHAD</button>
+            <button class="mode-btn" data-mode="stacy">STACY</button>
+            <button class="mode-btn" data-mode="wife">WIFE</button>
+            <button class="mode-btn" data-mode="husband">HUSBAND</button>
+        </header>
+
+        <main class="scanner-container">
+            <div class="viewfinder">
+                <video id="video" autoplay muted playsinline></video>
+                <canvas id="overlay"></canvas>
+                <div class="scan-line"></div>
+                <div class="status-ticker">
+                    <span id="status-text">INITIALIZING...</span>
+                    <span id="data-stream">X:00.0 Y:00.0 Z:--</span>
+                </div>
+                <div class="hud-bracket top-left"></div>
+                <div class="hud-bracket top-right"></div>
+                <div class="hud-bracket bottom-left"></div>
+                <div class="hud-bracket bottom-right"></div>
+            </div>
+        </main>
+
+        <footer class="controls">
+            <button id="analyze-btn" class="main-action">ANALYZE VIBE</button>
+            
+            <div class="upload-area" style="position: relative; overflow: hidden;">
+                <label class="upload-label" style="pointer-events: none;">UPLOAD PHOTO</label>
+                <input type="file" id="image-upload" accept="image/*" 
+                       style="position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; z-index: 10;">
+            </div>
+
+            <div class="strictness-toggle">
+                <button class="strictness-btn active" data-strictness="lenient">LENIENT</button>
+                <button class="strictness-btn" data-strictness="strict">STRICT</button>
+            </div>
+
+            <button id="mesh-toggle" class="text-toggle-btn">MESH: OFF</button>
+        </footer>
+
+        <div id="result-card" class="result-card hidden">
+            <div class="card-content">
+                <div class="card-drag-handle"></div>
+                <h2 id="result-title">ANALYSIS COMPLETE</h2>
+                <div class="stats-grid" id="stats-output"></div>
+                <button id="close-result" class="back-button">NEW SCAN</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    
+    <script>
+        window.onclick = function() { window.focus(); };
+        window.ontouchstart = function() { window.focus(); };
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
