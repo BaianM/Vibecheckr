@@ -1,2 +1,2 @@
 # Vibecheckr
-A browser-based facial analysis app that uses AI-powered facial landmark detection and to determine if you are a Chad, Stacy, and others.
+A browser-based facial analysis app that uses AI-powered facial landmark detection and to determine if you are a Chad, Stacy, and others. Private, no information is stored.
